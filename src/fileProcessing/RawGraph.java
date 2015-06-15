@@ -12,7 +12,7 @@ import java.util.HashMap;
  */
 public class RawGraph {
 
-	private static String filename = "./out/wiki_raw.dot";
+	private static String filename = "./data/wiki_raw.dot";
 	private static ArrayList<GraphNode> nodes = new ArrayList<GraphNode>();		//list of all nodes
 	private static HashMap<String, GraphNode> nodemap = new HashMap<String, GraphNode>(4000000, (float) 0.75);
 	//differentGraphs is a List of all rootcircles, where graphs do not intersect

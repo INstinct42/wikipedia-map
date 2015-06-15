@@ -4,7 +4,6 @@ import graph.GraphNode;
 import plot.GraphPlotter;
 import processing.core.*;
 
-@SuppressWarnings("serial")
 public class GraphDraw extends PApplet {
 	PApplet parent; // The parent PApplet that we will render ourselves onto
 	private GraphPlotter pltr;
@@ -24,7 +23,7 @@ public class GraphDraw extends PApplet {
 		noFill();
 
 		root = SortedGraph.importFile(
-				"./data/wiki_sorted.dot",
+				"./data/wiki_raw_sorted.dot",
 				"Wissenschaft");
 		/*	
 
