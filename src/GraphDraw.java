@@ -7,17 +7,16 @@ import processing.core.*;
 @SuppressWarnings("serial")
 public class GraphDraw extends PApplet {
 	PApplet parent; // The parent PApplet that we will render ourselves onto
-
-
 	private GraphPlotter pltr;
 	private GraphNode root;
-	private double drawRootSize = 75.0;
-	private boolean drawLines = false;
-	private int drawEveryUpdateInterval = 10;
-	private boolean exportAndClose = false;
-	private String exportfile = "/home/justin/git/wikipedia-map/out/test.tex";
+	private boolean EXPORT_AND_CLOSE = false;
 
-	
+	private final double DRAW_ROOT_SIZE = 75.0;
+	private final boolean DRAW_LINES = false;
+	private final int DRAW_EVERY_UPDATE_INTERVAL = 10;
+	private final String EXPORTFILE = "/home/justin/git/wikipedia-map/out/test.tex";
+
+
 	public void setup() {
 		
 		size(512, 512);
@@ -67,9 +66,9 @@ public class GraphDraw extends PApplet {
 	}
 
 	public void draw() {
-		if(pltr.getWaitingNodes().isEmpty() || exportAndClose) {
+		if(pltr.getWaitingNodes().isEmpty() || EXPORT_AND_CLOSE) {
 			System.out.println("Starting export to tikz.");
-			TexGraph.exportToTex(	exportfile, 
+			TexGraph.exportToTex(EXPORTFILE, 
 									pltr.getPlottedNodes(), true, true, false);
 			System.out.println("Export to tikz complete.");
 			exit();
@@ -79,7 +78,7 @@ public class GraphDraw extends PApplet {
 							+ "iterations, \n" + pltr.getMovingNodes().size() + " movingNodes, "
 							+ pltr.getPlottedNodes().size() + " plottedNodes and " 
 							+ pltr.getWaitingNodes().size() + " waitingNodes\n");
-		for(int i=0; i<drawEveryUpdateInterval; i++) {
+		for(int i=0; i< DRAW_EVERY_UPDATE_INTERVAL; i++) {
 			pltr.update();
 		}
 		System.out.print("Start drawing.                                    \n");
@@ -96,40 +95,40 @@ public class GraphDraw extends PApplet {
 	private void drawNode(GraphNode x, int color) {
 		stroke(color);
 		//draw the node + every link
-		ellipse((float) (width/2.0 + x.getxPos()*drawRootSize), 
-				(float) (height/2.0 + x.getyPos()*drawRootSize),
-				(float) (x.getRadius()*drawRootSize*2.0),
-				(float) (x.getRadius()*drawRootSize*2.0));
+		ellipse((float) (width/2.0 + x.getxPos()* DRAW_ROOT_SIZE),
+				(float) (height/2.0 + x.getyPos()* DRAW_ROOT_SIZE),
+				(float) (x.getRadius()* DRAW_ROOT_SIZE *2.0),
+				(float) (x.getRadius()* DRAW_ROOT_SIZE *2.0));
 		//System.out.println(x);
 		for(GraphNode y : x.getChildren()) {
-			if(!drawLines) break;
+			if(!DRAW_LINES) break;
 			PVector v1;
 			PVector v2;
 			PVector vNorm1;
 			PVector vNorm2;
-			v1 = new PVector(	width/2 + (float)(x.getxPos()*drawRootSize), 
-					height/2 + (float)(x.getyPos()*drawRootSize));
-			v2 = new PVector(	width/2 + (float)(y.getxPos()*drawRootSize), 
-					height/2 + (float)(y.getyPos()*drawRootSize));
+			v1 = new PVector(	width/2 + (float)(x.getxPos()* DRAW_ROOT_SIZE),
+					height/2 + (float)(x.getyPos()* DRAW_ROOT_SIZE));
+			v2 = new PVector(	width/2 + (float)(y.getxPos()* DRAW_ROOT_SIZE),
+					height/2 + (float)(y.getyPos()* DRAW_ROOT_SIZE));
 			vNorm1 = v1.get();
 			vNorm1.sub(v2);
 			vNorm1.normalize();
 			vNorm2 = vNorm1.get();
-			vNorm1.mult((float)(x.getRadius()*drawRootSize));
+			vNorm1.mult((float)(x.getRadius()* DRAW_ROOT_SIZE));
 			v1.sub(vNorm1);
-			vNorm2.mult((float)(y.getRadius()*drawRootSize));
+			vNorm2.mult((float)(y.getRadius()* DRAW_ROOT_SIZE));
 			v2.add(vNorm2);
 			line(v1.x, v1.y, v2.x, v2.y);
 		}
 		ellipse(width/2,
 				height/2,
-				(float) (pltr.getMovingCircleRadius()*0.5*drawRootSize),
-				(float) (pltr.getMovingCircleRadius()*0.5*drawRootSize));
+				(float) (pltr.getMovingCircleRadius()*0.5* DRAW_ROOT_SIZE),
+				(float) (pltr.getMovingCircleRadius()*0.5* DRAW_ROOT_SIZE));
 	}
 
 
 	public void mousePressed() {
-		   exportAndClose = true;
+		   EXPORT_AND_CLOSE = true;
 		   System.out.println("Will abort program asap.");
 		}
 
