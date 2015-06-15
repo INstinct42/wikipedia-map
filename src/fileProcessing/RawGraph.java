@@ -1,14 +1,10 @@
 package fileProcessing;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import graph.GraphNode;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import graph.GraphNode;
 
 /** This class does much more than importing. It can output a sorted list of all graphs which are defined in the .dot-file
  * @author justin
@@ -16,7 +12,7 @@ import graph.GraphNode;
  */
 public class RawGraph {
 
-	private static String filename = "/home/justin/Dropbox/java/Wikipedia Crawl/wiki_raw.dot";
+	private static String filename = "./out/wiki_raw.dot";
 	private static ArrayList<GraphNode> nodes = new ArrayList<GraphNode>();		//list of all nodes
 	private static HashMap<String, GraphNode> nodemap = new HashMap<String, GraphNode>(4000000, (float) 0.75);
 	//differentGraphs is a List of all rootcircles, where graphs do not intersect
@@ -25,7 +21,7 @@ public class RawGraph {
 	public static void main(String[] args) {
 		importFile(filename);
 		analyseGraph();
-		exportSortedFile("/home/justin/Dropbox/java/Wikipedia Crawl/wiki_raw_sorted.dot");
+		exportSortedFile("./out/wiki_raw_sorted.dot");
 	}
 
 

@@ -10,7 +10,7 @@ import java.io.UnsupportedEncodingException;
 public class GetDotFromWikiDump {
 	
 	private static String ifile = "./data/dewiki-latest-pages-articles.xml";
-	private static String ofile = "./out/crawl/test.dot";
+	private static String ofile = "./out/test.dot";
 	private static int iterations = 100;
 	
 	public static void main(String[] args) {
