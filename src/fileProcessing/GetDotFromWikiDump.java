@@ -9,8 +9,8 @@ import java.io.UnsupportedEncodingException;
 
 public class GetDotFromWikiDump {
 	
-	private static String ifile = "/home/justin/Downloads/dewiki-latest-pages-articles.xml";
-	private static String ofile = "/home/justin/Dropbox/java/Wikipedia Crawl/test.dot";
+	private static String ifile = "./data/dewiki-latest-pages-articles.xml";
+	private static String ofile = "./out/crawl/test.dot";
 	private static int iterations = 100;
 	
 	public static void main(String[] args) {
@@ -27,7 +27,6 @@ public class GetDotFromWikiDump {
 			e1.printStackTrace();
 			return;
 		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 			return;
 		}
@@ -126,7 +125,7 @@ public class GetDotFromWikiDump {
 			
 		}*/
 		
-		str = str.replaceFirst("(*)", "");
+		str = str.replaceFirst("(.*)", "");
 		return res;
 	}
 

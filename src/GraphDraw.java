@@ -10,9 +10,9 @@ public class GraphDraw extends PApplet {
 	private GraphPlotter pltr;
 	private GraphNode root;
 	private boolean EXPORT_AND_CLOSE = false;
+	private boolean DRAW_LINES = false;
 
 	private final double DRAW_ROOT_SIZE = 75.0;
-	private final boolean DRAW_LINES = false;
 	private final int DRAW_EVERY_UPDATE_INTERVAL = 10;
 	private final String EXPORTFILE = "./out/test.tex";
 
