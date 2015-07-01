@@ -4,7 +4,6 @@ import graph.GraphNode;
 import plot.GraphPlotter;
 import processing.core.*;
 
-@SuppressWarnings("serial")
 public class GraphDraw extends PApplet {
 	PApplet parent; // The parent PApplet that we will render ourselves onto
 	private GraphPlotter pltr;
@@ -24,8 +23,13 @@ public class GraphDraw extends PApplet {
 		noFill();
 
 		root = SortedGraph.importFile(
+<<<<<<< HEAD
 				"/home/justin/git/wikipedia-map/data/wiki_sorted_attr.dot", 
 				"formale Sprache");
+=======
+				"./data/wiki_raw_sorted.dot",
+				"Wissenschaft");
+>>>>>>> Some small improvements, mainly path related.
 		/*	
 
 		root = new GraphNode("Philosophie");

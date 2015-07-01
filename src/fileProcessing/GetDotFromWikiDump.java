@@ -11,7 +11,7 @@ public class GetDotFromWikiDump {
 	
 	private static String ifile = "./data/dewiki-latest-pages-articles.xml";
 	private static String ofile = "./out/test.dot";
-	private static int iterations = 100;
+	private static int iterations = 100000;
 	
 	public static void main(String[] args) {
 		
