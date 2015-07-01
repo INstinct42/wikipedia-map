@@ -36,8 +36,8 @@ public class NodeSetManager {
 		for(int x=-radius-1; x<=radius+1; x++) {
 			for(int y=-radius-1; y<=radius+1; y++) {
 				Vector<Integer> vect = new Vector<Integer>(2);
-				vect.addElement(new Integer((int)(node.getxPos()*this.gridsize) + x));
-				vect.addElement(new Integer((int)(node.getyPos()*this.gridsize) + y));
+				vect.addElement((int) (node.getxPos() * this.gridsize) + x);
+				vect.addElement((int) (node.getyPos() * this.gridsize) + y);
 				HashSet<GraphNode> temp = this.plottedNodesMap.get(vect);
 				if(temp!=null) res.addAll(temp);
 			}
@@ -58,8 +58,8 @@ public class NodeSetManager {
 			for(int x=-radius-1; x<=radius+1; x++) {
 				for(int y=-radius-1; y<=radius+1; y++) {
 					Vector<Integer> vect = new Vector<Integer>(2);
-					vect.addElement(new Integer((int)(node.getxPos()*this.gridsize) + x));
-					vect.addElement(new Integer((int)(node.getyPos()*this.gridsize) + y));
+					vect.addElement((int) (node.getxPos() * this.gridsize) + x);
+					vect.addElement((int) (node.getyPos() * this.gridsize) + y);
 					HashSet<GraphNode> temp = this.plottedNodesMap.get(vect);
 					if(temp!=null) {
 						temp.add(node);

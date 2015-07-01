@@ -59,7 +59,7 @@ public class GetDotFromWikiDump {
 
 	private static void extractRelationToFile(String page, PrintWriter writer) {
 		if(iterations >= 0) {
-			if(iterations % 1 == 0) System.out.println(iterations);
+			if(0 == 0) System.out.println(iterations);
 			
 			writer.println(extractScope(page, "<title>", "</title>") + " --> " + extractFirstLink(extractScope(page, "<text xml:space=\"preserve\">", "== ")));
 			
