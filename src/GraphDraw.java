@@ -23,13 +23,8 @@ public class GraphDraw extends PApplet {
 		noFill();
 
 		root = SortedGraph.importFile(
-<<<<<<< HEAD
 				"/home/justin/git/wikipedia-map/data/wiki_sorted_attr.dot", 
 				"formale Sprache");
-=======
-				"./data/wiki_raw_sorted.dot",
-				"Wissenschaft");
->>>>>>> Some small improvements, mainly path related.
 		/*	
 
 		root = new GraphNode("Philosophie");
